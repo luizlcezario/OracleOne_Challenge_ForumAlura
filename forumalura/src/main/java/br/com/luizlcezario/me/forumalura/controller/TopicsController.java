@@ -28,7 +28,7 @@ public class TopicsController {
         return ResponseEntity.ok(topics);
     }
 
-    @GetMapping(value =  "/")
+    @GetMapping()
     private ResponseEntity<List<Topics>> findAll() {
         List<Topics> topics = topicsService.findAll();
         return ResponseEntity.ok(topics);
@@ -37,7 +37,7 @@ public class TopicsController {
     @PostMapping(value = "/create")
     private ResponseEntity<Topics>  create(@RequestBody TopicsCreateDto body) {
         Topics topic = topicsService.create(body);
-        return ResponseEntity.status(204).body(topic);
+        return ResponseEntity.status(202).body(topic);
     }
 
     @PutMapping(value = "/edit/{id}")

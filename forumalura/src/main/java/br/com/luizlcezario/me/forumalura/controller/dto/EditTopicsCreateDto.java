@@ -1,18 +1,56 @@
 package br.com.luizlcezario.me.forumalura.controller.dto;
 
 import java.util.Objects;
-import java.util.Optional;
-
 public class EditTopicsCreateDto {
-    private Optional<String> title;
+    private String title;
 
-    private Optional<String> message;
+    private String message;
 
-    private Optional<String> author;
+    private String author;
 
-    private Optional<String> course;
+    private String course;
 
-    private Optional<Boolean> enabled;
+    private Boolean enabled;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -27,54 +65,14 @@ public class EditTopicsCreateDto {
         return Objects.hash(title, message, author, course, enabled);
     }
 
-    public EditTopicsCreateDto(Optional<String> title, Optional<String> message, Optional<String> author, Optional<String> course, Optional<Boolean> enabled) {
-        this.title = title;
-        this.message = message;
-        this.author = author;
-        this.course = course;
-        this.enabled = enabled;
-    }
-
-    public Optional<String> getTitle() {
-        return title;
-    }
-
-    public void setTitle(Optional<String> title) {
-        this.title = title;
-    }
-
-    public Optional<String> getMessage() {
-        return message;
-    }
-
-    public void setMessage(Optional<String> message) {
-        this.message = message;
-    }
-
-    public Optional<String> getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Optional<String> author) {
-        this.author = author;
-    }
-
-    public Optional<String> getCourse() {
-        return course;
-    }
-
-    public void setCourse(Optional<String> course) {
-        this.course = course;
-    }
-
-    public Optional<Boolean> getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Optional<Boolean> enabled) {
-        this.enabled = enabled;
-    }
-
     public EditTopicsCreateDto() {
+    }
+
+    public EditTopicsCreateDto(String title, String message, String author, String course, Boolean enabled) {
+        this.title = title;
+        this.message = message;
+        this.author = author;
+        this.course = course;
+        this.enabled = enabled;
     }
 }

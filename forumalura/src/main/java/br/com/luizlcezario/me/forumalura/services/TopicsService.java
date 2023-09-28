@@ -38,11 +38,17 @@ public class TopicsService {
         if (topicsRepository.findByTitle(body.getTitle()).isPresent()) {
             throw new RuntimeException();
         }
-        return topicsRepository.save(new Topics(null, body.getTitle(), body.getMessage(), null, true, body.getAuthor(), body.getCourse()))
+        return topicsRepository.save(new Topics(null, body.getTitle(), body.getMessage(), null, true, body.getAuthor(), body.getCourse()));
     }
 
     public Topics editTopics(UUID id, EditTopicsCreateDto edit) {
         Topics topics = topicsRepository.findById(id).orElseThrow();
-        edit.getAuthor().ge
+        if (edit.getAuthor() != null)  topics.setAuthor(edit.getAuthor());
+        if (edit.getEnabled() != null) topics.setEnabled(edit.getEnabled());
+        if (edit.getCourse() != null) topics.setCourse(edit.getCourse());
+        if (edit.getTitle() != null) topics.setTitle(edit.getTitle());
+        if (edit.getMessage() != null) topics.setMessage(edit.getMessage());
+        topics = topicsRepository.save(topics);
+        return topics;
     }
 }

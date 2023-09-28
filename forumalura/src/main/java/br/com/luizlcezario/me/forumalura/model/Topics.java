@@ -1,8 +1,10 @@
 package br.com.luizlcezario.me.forumalura.model;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -21,7 +23,9 @@ public class Topics {
 
     private String message;
 
-    private Date created_at;
+
+    @CreationTimestamp
+    private Instant created_at;
 
     private Boolean Enabled;
 
@@ -45,7 +49,7 @@ public class Topics {
     public Topics() {
     }
 
-    public Topics(UUID id, String title, String message, Date created_at, Boolean enabled, String author, String course) {
+    public Topics(UUID id, String title, String message, Instant created_at, Boolean enabled, String author, String course) {
         this.id = id;
         this.title = title;
         this.message = message;
@@ -79,11 +83,11 @@ public class Topics {
         this.message = message;
     }
 
-    public Date getCreated_at() {
+    public Instant getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(Date created_at) {
+    public void setCreated_at(Instant created_at) {
         this.created_at = created_at;
     }
 
